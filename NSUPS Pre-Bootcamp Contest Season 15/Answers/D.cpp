@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-void compareTriplets(int a[3], int b[3])
+int* compareTriplets(int a[3], int b[3])
 {
     int alicePoints = 0, bobPoints = 0;
     for (int i = 0; i < 3; i++)
@@ -15,11 +15,9 @@ void compareTriplets(int a[3], int b[3])
         }
     }
 
-    int returnArray[2] = {alicePoints, bobPoints};
-    for (int i = 0; i < 2; i++)
-    {
-        cout << returnArray[i] << " ";
-    }
+    static int returnArray[2] = {alicePoints, bobPoints};
+    return returnArray;
+    
 }
 int main()
 {
@@ -33,5 +31,9 @@ int main()
     {
         cin >> bob[i];
     }
-    compareTriplets(alice, bob);
+    int* result= compareTriplets(alice, bob);
+    for (int i = 0; i < 2; i++)
+    {
+        cout << result[i] << " ";
+    }
 }
